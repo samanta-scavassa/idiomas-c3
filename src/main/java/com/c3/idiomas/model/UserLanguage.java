@@ -1,5 +1,7 @@
 package com.c3.idiomas.model;
 
+import com.c3.idiomas.enums.Classification;
+import com.c3.idiomas.enums.Level;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,10 +23,10 @@ public class UserLanguage implements Serializable {
     @EmbeddedId
     UserLanguageID userLanguageID;
 
-    @OneToOne
-    private LanguageLevel level;
+    @Column(name="classification", nullable = false)
+    private Level level;
 
-    @Column(name="classification", length = 50, nullable = false)
-    private String classification;
+    @Column(name="classification", nullable = false)
+    private Classification classification;
 
 }

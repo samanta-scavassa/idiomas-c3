@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/user/language")
+@CrossOrigin
 public class UserLanguageController {
 
     ModelMapper modelMapper;

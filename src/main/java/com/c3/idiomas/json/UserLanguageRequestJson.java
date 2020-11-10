@@ -1,7 +1,6 @@
 package com.c3.idiomas.json;
 
 import com.c3.idiomas.model.Language;
-import com.c3.idiomas.model.LanguageLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +14,4 @@ public class UserLanguageRequestJson {
 
     private Long userId;
 
-    private LanguageLevel level;
-
-    private String classificacao;
 }
