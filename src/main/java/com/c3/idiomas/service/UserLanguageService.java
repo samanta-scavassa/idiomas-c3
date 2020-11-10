@@ -28,8 +28,8 @@ public class UserLanguageService {
         return userLanguageRepository.findUserLanguageByUserId(userId);
     }
 
-    public Optional<UserLanguage> getUserLanguageByLanguageIdLevelId(Long languageId, Long levelId) {
-        return userLanguageRepository.findUserLanguageByLanguageIdLevelId(languageId, levelId);
+    public List<UserLanguage> getUserLanguageByLanguageIdLevelId(Long languageId, String level) {
+        return userLanguageRepository.findUserLanguageByLanguageIdLevelName(languageId, level);
     }
 
     public List<UserLanguage> getUserLanguageByLanguageId(Long languageId) {

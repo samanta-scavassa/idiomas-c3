@@ -51,15 +51,15 @@ public class UserLanguageController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/lingua/{languageId}/level/{levelId}")
-    public ResponseEntity<UserLanguage> getUserLanguageByLanguageIdLevelId(@PathVariable("languageId") Long languageId,
-                                                                           @PathVariable("LevelId")  Long levelId) {
+    @GetMapping("/lingua/{languageId}/level/{level}")
+    public ResponseEntity<List<UserLanguage>> getUserLanguageByLanguageIdLevelId(@PathVariable("languageId") Long languageId,
+                                                                           @PathVariable("level")  String level) {
 
-        Optional<UserLanguage> userLanguage = userLanguageService.getUserLanguageByLanguageIdLevelId(languageId, levelId);
+        List<UserLanguage> userLanguage = userLanguageService.getUserLanguageByLanguageIdLevelId(languageId, level);
 
-        return userLanguage
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        return userLanguage != null ?
+                ResponseEntity.ok(userLanguage) :
+                ResponseEntity.notFound().build();
     }
 
     @GetMapping("/lingua/{languageId}")

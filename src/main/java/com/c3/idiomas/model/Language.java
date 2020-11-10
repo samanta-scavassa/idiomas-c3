@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "languages")
+@Table(name = "language_catalog")
 public class Language implements Serializable {
 
     private static final long serialVersionUID = -6256496809436939677L;

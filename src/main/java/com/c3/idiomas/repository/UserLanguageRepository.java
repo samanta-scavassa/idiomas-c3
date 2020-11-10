@@ -14,16 +14,13 @@ public interface UserLanguageRepository extends JpaRepository<UserLanguage, User
     @Query( "select ul from UserLanguage ul where ul.userLanguageID.userId = :userId")
     Optional<UserLanguage> findUserLanguageByUserId(@Param("userId") Long userId);
 
-    @Query( "select ul from UserLanguage ul where ul.userLanguageID.language.id = :languageId and ul.level.id = :levelId")
-    Optional<UserLanguage> findUserLanguageByLanguageIdLevelId(
-            @Param("languageId") Long languageId, @Param("levelId") Long levelId);
+    @Query( "select ul from UserLanguage ul where ul.userLanguageID.languageId = :languageId and ul.level LIKE '%:level%'")
+    List<UserLanguage> findUserLanguageByLanguageIdLevelName(
+            @Param("languageId") Long languageId, @Param("level") String level);
 
-    @Query( "select ul from UserLanguage ul where ul.userLanguageID.language.id = :languageId")
+
+    @Query( "select ul from UserLanguage ul where ul.userLanguageID.languageId = :languageId")
     List<UserLanguage> findUserLanguageByLanguageId(@Param("languageId") Long languageId);
-
-    List<UserLanguage> findByUserId(Long userId);
-
-    List<UserLanguage> findByLanguageId(Long languageId);
 
     Optional<UserLanguage> findByUserLanguageID(UserLanguageID userLanguageID);
 

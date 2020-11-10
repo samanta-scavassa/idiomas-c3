@@ -23,7 +23,7 @@ public class UserLanguage implements Serializable {
     @EmbeddedId
     UserLanguageID userLanguageID;
 
-    @Column(name="classification", nullable = false)
+    @Column(name="level", nullable = false)
     private Level level;
 
     @Column(name="classification", nullable = false)
