@@ -24,9 +24,9 @@ public class UserLanguage implements Serializable {
     UserLanguageID userLanguageID;
 
     @Column(name="level", nullable = false)
-    private Level level;
+    private String level;
 
     @Column(name="classification", nullable = false)
-    private Classification classification;
+    private String classification;
 
 }

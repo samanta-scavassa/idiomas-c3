@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserLanguageRequestJson {
 
-    private Language language;
+    private LanguageRequestJson languageRequest;
 
     private Long userId;
 
