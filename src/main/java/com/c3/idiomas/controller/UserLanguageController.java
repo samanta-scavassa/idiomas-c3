@@ -18,8 +18,6 @@ import java.util.Optional;
 @CrossOrigin
 public class UserLanguageController {
 
-    ModelMapper modelMapper;
-
     @Autowired
     private UserLanguageService userLanguageService;
 
@@ -77,7 +75,7 @@ public class UserLanguageController {
     public ResponseEntity postLanguage(@Valid @RequestBody UserLanguageRequestJson request) {
 
         try {
-            UserLanguage userLanguage = modelMapper.map(request, UserLanguage.class);
+            UserLanguage userLanguage = new UserLanguage(request);
             userLanguageService.saveUserLanguage(userLanguage);
             return ResponseEntity.created(null).build();
         } catch (Exception e) {

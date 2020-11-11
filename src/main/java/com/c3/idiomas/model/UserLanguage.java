@@ -2,6 +2,7 @@ package com.c3.idiomas.model;
 
 import com.c3.idiomas.enums.Classification;
 import com.c3.idiomas.enums.Level;
+import com.c3.idiomas.json.UserLanguageRequestJson;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,5 +29,11 @@ public class UserLanguage implements Serializable {
 
     @Column(name="classification", nullable = false)
     private String classification;
+
+    public UserLanguage(UserLanguageRequestJson request) {
+        this.userLanguageID = new UserLanguageID(request.getLanguageRequest().getId(), request.getUserId());
+        this.level = request.getLanguageRequest().getLevel();
+        this.classification = request.getLanguageRequest().getClassification();
+    }
 
 }
